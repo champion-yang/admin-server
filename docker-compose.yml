@@ -1,0 +1,17 @@
+version: "3"
+services:
+  adminsite:
+    container_name: admin-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    env_file:
+      - ./app.env
