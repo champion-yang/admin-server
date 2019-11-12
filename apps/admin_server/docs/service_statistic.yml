@@ -1,0 +1,112 @@
+tags:
+  - user
+summary: 接口次数调用汇总
+description: 接口次数调用汇总，可以进行日期筛选
+requestBody:
+  content:
+    'application/json':
+      schema:
+        required:
+          - date_start
+          - date_end
+        properties:
+          date_start:
+            type: date
+            description: "开始时间"
+            example: "2019-07-10"
+          date_end:
+            type: date
+            description: "结束时间"
+            example: "2019-07-11"
+
+responses:
+  400:
+    description: 上传参数错误
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 400
+              default: 400
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "the xxx is required!"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+  500:
+    description: 服务器报错返回结果
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 500
+              default: 500
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "Server Error"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+
+  200:
+    description: 获取成功消息
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 200
+              default: 200
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "success"
+              description: 返回消息提示
+            Result:
+              type: object
+              example: {
+                "search_res": [
+                {
+                  "difference_count": "1",
+                  "paid_count": "0",
+                  "request_count": 1,
+                  "service": "/api/v1/pull/identity"
+                },
+                {
+                  "difference_count": "2",
+                  "paid_count": "4",
+                  "request_count": 6,
+                  "service": "/api/v1/pull/identity/"
+                },
+                {
+                  "difference_count": "62",
+                  "paid_count": "42",
+                  "request_count": 104,
+                  "service": "/api/v1/query/identity"
+                }
+                ],
+                "total": {
+                  "difference_count": 65,
+                  "paid_count": 46,
+                  "request_count": 111
+                }
+              }
+              description: 成功返回的内容

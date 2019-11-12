@@ -1,0 +1,43 @@
+tags:
+  - user
+summary: 获取用户信息
+description: 获取用户信息
+requestBody:
+  content:
+    'application/json':
+      schema:
+        required:
+
+        properties:
+
+
+responses:
+  200:
+    description: 获取成功消息
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 200
+              default: 200
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "Server Error"
+              description: 返回消息提示
+            Result:
+              type: object
+              example: {
+                "created_at": "2019-11-06 17:04:16",
+                "id": 1,
+                "last_login_at": "2019-11-06 21:03:46",
+                "role_id": 0,
+                "status": 0,
+                "user_name": "kebei"
+              }
+              description: 用户信息
+
