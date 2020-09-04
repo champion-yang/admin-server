@@ -1,0 +1,11 @@
+version: "3"
+services:
+  adminsite:
+    #command: ["gunicorn","-c", "gunicorn_conf.py", "flasky:app"]
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ap-southeast-1
+        awslogs-group: moss/adminsite
+        awslogs-stream: default
+        awslogs-datetime-format: "%Y-%m-%d %H:%M:%S"

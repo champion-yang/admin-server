@@ -1,0 +1,109 @@
+tags:
+  - user
+summary: 账户每日余额
+description: 账户每日余额
+requestBody:
+  content:
+    'application/json':
+      schema:
+        required:
+          - page_number
+          - length
+        properties:
+          date_start:
+            type: string
+            description: "开始日期"
+            example: "2019-10-10"
+          date_end:
+            type: string
+            description: "结束日期"
+            example: "2019-11-11"
+          page_number:
+            type: int
+            description: "起始页码"
+            example: 1
+          length:
+            type: int
+            description: "每页显示条数"
+            example: 10
+responses:
+  400:
+    description: 上传参数错误
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 400
+              default: 400
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "the xxx is required!"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+  500:
+    description: 服务器报错返回结果
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 500
+              default: 500
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "Server Error"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+
+  200:
+    description: 获取成功消息
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 200
+              default: 200
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "Server Error"
+              description: 返回消息提示
+            Result:
+              type: object
+              example: {
+                  "data": [
+                  {
+                    "balance_type": "CNY",
+                    "daily_balance": "0.00",
+                    "daily_consumption": "-1.50",
+                    "date": "2019-09-19"
+                  },
+                  {
+                    "balance_type": "CNY",
+                    "daily_balance": "0.00",
+                    "daily_consumption": "-2.70",
+                    "date": "2019-09-18"
+                  }
+                  ],
+                  "total": 4
+                }
+              description: 账户每日余额

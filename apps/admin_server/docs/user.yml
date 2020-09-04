@@ -1,0 +1,96 @@
+tags:
+  - user
+summary: 用户注册
+description: 用户注册接口
+requestBody:
+  content:
+    'application/json':
+      schema:
+        required:
+          - user_name
+          - password
+          - role_id
+          - stataus
+        properties:
+          user_name:
+            type: string
+            description: "用户名"
+            example: "kebei"
+          password:
+            type: string
+            description: "用户密码"
+            example: "9627"
+          role_id:
+            type: int
+            description: "角色id"
+            example: "1"
+          stataus:
+            type: int
+            description: "状态"
+            example: "1"
+
+responses:
+  400:
+    description: 上传参数错误
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 400
+              default: 400
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "the xxx is required!"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+  500:
+    description: 服务器报错返回结果
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 500
+              default: 500
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "Server Error"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
+
+  200:
+    description: 获取成功消息
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            Code:
+              type: integer
+              format: int64
+              example: 200
+              default: 200
+              description: 查询返回消息码
+            Message:
+              type: string
+              example: "success"
+              description: 返回消息提示
+            Result:
+              type: boolean
+              example: 0
+              description: XXX
