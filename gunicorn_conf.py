@@ -16,9 +16,9 @@ debug = config_obj.getboolean("gunicorn", "debug")
 # 设置日志记录水平
 loglevel = 'debug'
 # 设置错误信息日志路径
-errorlog = '/var/logs/error.logs'
+# errorlog = '/var/logs/error.logs'
 # 设置访问日志路径
-accesslog = '/var/logs/access.logs'
+# accesslog = '/var/logs/access.logs'
 
 # 跑的时候设置log level, 最终就可以将flask的日志输出在gunicorn上了
 # $ gunicorn --workers=4 --bind=0.0.0.0:8000 --logs-level=warning apps:apps

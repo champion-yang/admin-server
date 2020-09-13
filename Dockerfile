@@ -5,9 +5,9 @@ RUN echo "Asia/Shanghai" > /etc/timezone \
 
 
 COPY requirements.txt /app/
-RUN pip install --upgrade pip \
- && pip install wheel \
- && pip install -r /app/requirements.txt \
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir --upgrade pip \
+ && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir wheel \
+ && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir -r /app/requirements.txt \
  && rm -rf ~/.cache/pip
 
 COPY . /app/
