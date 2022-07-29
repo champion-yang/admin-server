@@ -16,7 +16,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.3
 jsonschema==3.0.2
 MarkupSafe==1.1.1
-mistune==0.8.4
+mistune==2.0.3
 peewee==3.11.2
 pycparser==2.19
 PyJWT==1.5.3
